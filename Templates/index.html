@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <h1>Bem-vindo ao Sistema de HelpDesk</h1>
+    <a href="{{ url_for('router.tk.new_ticket') }}">Abrir Novo Ticket</a>
+    <ul>
+        {% for ticket in tickets %}
+            <li>{{ ticket.title }} - {{ ticket.status }}</li>
+        {% endfor %}
+    </ul>
+{% endblock conteudo %}
