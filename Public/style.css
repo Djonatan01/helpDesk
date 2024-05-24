@@ -1,9 +1,26 @@
 :root {
-  --color-neutral-0: #FF6F61;    /* Vermelho Coral */
-  --color-neutral-10: #FFA726;   /* Laranja Suave */
-  --color-neutral-30: #66BB6A;   /* Verde Menta */
-  --color-neutral-40: #FFEB3B;   /* Amarelo Limão */
-  --color-neutral-50: #42A5F5;   /* Azul Claro */
+  --color-neutral-0: #0e0c0c;
+  --color-neutral-10: #2e2c2c;
+  --color-neutral-20: #413f3f;
+  --color-neutral-30: #a8a29e;
+  --color-neutral-40: #fcf8f8;
+  --color-neutral-50: #958c8c;
+}
+
+/* Este CSS deve ser colocado dentro da tag <style> no cabeçalho do seu documento HTML ou em um arquivo CSS externo */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline; /* Isso faz com que os itens fiquem lado a lado */
+  margin-right: 10px; /* Espaçamento entre os itens */
+}
+#nav_content {
+  background-color: var(--color-neutral-20);
+
 }
 
 * {
@@ -40,7 +57,7 @@ footer {
   background-color: var(--color-neutral-10);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 3rem 3.5rem;
+  padding: 1rem 2rem;
 }
 
 #footer_contacts h1 {
@@ -119,7 +136,7 @@ footer {
   display: flex;
   align-items: center;
   background-color: var(--color-neutral-0);
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 #input_group input {
@@ -172,7 +189,7 @@ footer {
 @media screen and (max-width:426px) {
   #footer_content {
     grid-template-columns: repeat(2, 1fr);
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
   }
 }
 

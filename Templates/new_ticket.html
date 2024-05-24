@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <title>New Ticket</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
+{% block conteudo %}
+
     <h1>Abrir Novo Ticket</h1>
     <form method="POST">
         <label for="title">Título</label>
@@ -14,5 +9,4 @@
         <textarea id="description" name="description" required></textarea>
         <button type="submit">Enviar</button>
     </form>
-</body>
-</html>
+{% endblock conteudo %}
