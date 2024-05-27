@@ -1,6 +1,20 @@
 from datetime import datetime
 from config import db
 
+#***************************************User Sistem************************************************
+class CreatUser(db.Model):
+    __tablenam__ = "Usuarios"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nomeUser = db.Column(db.Text, nullable=False)
+    emailUser = db.Column(db.Text, nullable=False)
+    senhaUser = db.Column(db.Text, nullable=False)
+
+    def __init__(self,_id,_nomeUser,_emailUser,_senhaUser):
+        self.nomeUser
+        self.emailUser
+        self.senhaUser
+
+#***************************************Tickets Sistem*********************************************
 class Ticket(db.Model):
     __tablename__= "Ticket"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
