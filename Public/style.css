@@ -1,13 +1,12 @@
 :root {
-  --color-neutral-0: #0e0c0c;
+  --color-neutral-0: #044040;
   --color-neutral-10: #2e2c2c;
-  --color-neutral-20: #413f3f;
+  --color-neutral-20: #066b6e;
   --color-neutral-30: #a8a29e;
   --color-neutral-40: #fcf8f8;
-  --color-neutral-50: #958c8c;
+  --color-neutral-50: #a9fddd;
 }
 
-/* Este CSS deve ser colocado dentro da tag <style> no cabeçalho do seu documento HTML ou em um arquivo CSS externo */
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -15,15 +14,16 @@ nav ul {
 }
 
 nav ul li {
-  display: inline; /* Isso faz com que os itens fiquem lado a lado */
-  margin-right: 10px; /* Espaçamento entre os itens */
+  display: inline;
+  margin-right: 10px;
 }
+
 #nav_content {
   background-color: var(--color-neutral-20);
 }
 
 * {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -38,7 +38,67 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
   flex: 1 0 auto;
+}
+
+h1 {
+  color: var(--color-neutral-0);
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 426px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+}
+
+.help-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.help-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.help-option img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.help-option h2 {
+  font-size: 1.2rem;
+  color: var(--color-neutral-0);
+}
+
+.help-option:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -91,7 +151,6 @@ footer {
 #footer_social_media .footer-link:hover {
   opacity: 100;
 }
-
 
 .footer-list {
   display: flex;
@@ -204,6 +263,7 @@ footer {
   .navbar-expand-lg .navbar-toggler {
     display: block;
   }
+
   .navbar-expand-lg .navbar-collapse {
     display: none !important;
   }
@@ -216,11 +276,27 @@ footer {
   padding: 1em 0;
 }
 
+.reservas-online {
+  color: #25d366;
+  font-weight: bold;
+  font-size: 30px;
+  animation: colorchange 3s infinite;
+}
 
-/* Definição da animação de mudança de cor */
 @keyframes colorchange {
-  0% {color: #25d366;}
-  33% {color: #1421d8;}
-  66% {color: #0e0c0c;}
-  100% {color: #25d366;}
+  0% {
+    color: #25d366;
+  }
+
+  33% {
+    color: #1421d8;
+  }
+
+  66% {
+    color: #0e0c0c;
+  }
+
+  100% {
+    color: #25d366;
+  }
 }
