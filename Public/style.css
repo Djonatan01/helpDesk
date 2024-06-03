@@ -20,7 +20,6 @@ nav ul li {
 }
 #nav_content {
   background-color: var(--color-neutral-20);
-
 }
 
 * {
@@ -93,17 +92,6 @@ footer {
   opacity: 100;
 }
 
-#github {
-  background-color: #0e0c0c;
-}
-
-#linkedin {
-  background-color: #4267b3;
-}
-
-#whatsapp {
-  background-color: #25d366;
-}
 
 .footer-list {
   display: flex;
@@ -228,12 +216,6 @@ footer {
   padding: 1em 0;
 }
 
-.reservas-online {
-  color: #25d366; /* Cor inicial do texto */
-  font-weight: bold; /* Texto em negrito */
-  font-size: 30px; /* Tamanho da fonte */
-  animation: colorchange 3s infinite; /* Animação de mudança de cor */
-}
 
 /* Definição da animação de mudança de cor */
 @keyframes colorchange {
