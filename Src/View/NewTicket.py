@@ -4,16 +4,16 @@ from ..Controller.Ticket import ControleTickets
 
 tk = Blueprint('tk', __name__)
 
-@tk.route('/new_ticket', methods=['GET', 'POST'])
+@tk.route('/new_ticket', methods=['POST'])
 def new_ticket():
     if request.method == 'POST':
-        title = request.form['title']
+        software_List = request.form.getlist('installsoftware')
+        software_str = ", ".join(software_List)
         description = request.form['description']
-        ControleTickets.cadastrarTicket(title,description)
-
+        ControleTickets.cadastrarTicket('Instalação de Software',software_str,description)
         return redirect(url_for('router.home.index'))
 
-    return render_template('new_ticket.html')
+    return render_template('servico.html')
 
 
 @tk.route('/servico/<tipo>')

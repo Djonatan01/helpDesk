@@ -5,9 +5,10 @@ from config import db
 from sqlalchemy.exc import IntegrityError
 
 class ControleTickets():
-    def cadastrarTicket(_title, _description):
+    def cadastrarTicket( _title,_software, _description):
         data = datetime.now().strftime('%d/%m/%Y')
-        tickets = Ticket(_title,_description,' ',data)
+        hora = datetime.now().strftime('%H:%M:%S')
+        tickets = Ticket(_title,_software,_description,'open',data,hora)
 
         db.session.add(tickets)
         try:

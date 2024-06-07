@@ -22,13 +22,17 @@ class CreatUser(db.Model):
 class Ticket(db.Model):
     __tablename__ = "Ticket"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    title = db.Column(db.String(100), nullable=False)
+    title = db.Column(db.String(50), nullable=False)
+    software=db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text, nullable=False)
     status = db.Column(db.String(20), nullable=False, default='Open')
-    created_at = db.Column(db.String, nullable=False)
+    created_data = db.Column(db.String, nullable=False)
+    created_hora = db.Column(db.String, nullable=False)
 
-    def __init__(self, _title, _descriptio, _status, _created_at):
+    def __init__(self, _title,_software, _description, _status, _created_data,_created_hora):
         self.title = _title
-        self.description = _descriptio
+        self.software = _software
+        self.description = _description
         self.status = _status
-        self.created_at = _created_at
+        self.created_data = _created_data
+        self.created_hora = _created_hora
