@@ -1,2 +1,3 @@
-*.venv
-*__Pycacher__
+.venv
+__Pycache__
+.vscode
