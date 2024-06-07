@@ -23,7 +23,8 @@ nav ul li {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000; /* para garantir que a nav fique acima de outros elementos */
+  z-index: 1000;
+  /* para garantir que a nav fique acima de outros elementos */
 }
 
 * {
@@ -67,6 +68,17 @@ h1 {
   h1 {
     font-size: 1.2rem;
   }
+}
+
+.check_box {
+
+  gap: 1.5rem;
+  padding: 0.3rem;
+  background: white;
+  border-radius: 50px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-block-end: 1rem;
 }
 
 .help-options {

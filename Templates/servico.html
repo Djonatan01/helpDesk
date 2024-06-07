@@ -1,52 +1,94 @@
 {% extends 'base.html' %}
 {% block conteudo %}
+<main>
+    <h1>{{ titulo }}</h1>
 
-<h1>{{ titulo }}</h1>
+    {% if tipo == 'install_software' %}
+    <p>Escolha os Software a ser instalado</p>
+    <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+        <div>
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="office" name="installsoftware" value="office">
+                    <label class="form-check-label" for="office">Pacote Office</label>
+                </div>
+            </div>
 
-{% if tipo == 'install_software' %}
-<p>Escolha o Software a ser instalado</p>
-<form method="POST">
-    <label for="title">Título</label>
-    <input type="text" id="title" name="title" required>
-    <label for="description">Descrição</label>
-    <textarea id="description" name="description" required></textarea>
-    <button type="submit">Enviar</button>
-</form>
-{%endif%}
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="tableau" name="installsoftware" value="tableau">
+                    <label class="form-check-label" for="tableau">Tableau</label>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="powerbi" name="installsoftware" value="powerbi">
+                    <label class="form-check-label" for="powerbi">Power BI</label><br>
+                </div>
+            </div>
 
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="photoshop" name="installsoftware"
+                        value="photoshop">
+                    <label class="form-check-label" for="photoshop">Adobe Photoshop</label><br>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="vs_code" name="installsoftware" value="vs_code">
+                    <label class="form-check-label" for="vs_code">Visual Studio Code</label><br>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="chrome" name="installsoftware" value="chrome">
+                    <label class="form-check-label" for="chrome">Google Chrome</label><br>
+                </div>
+            </div>
+        </div>
 
-{% if tipo == 'uninstall_software' %}
-<p>Escolha o Software a ser desinstalação</p>
-<form method="POST">
-    <label for="title">Título</label>
-    <input type="text" id="title" name="title" required>
-    <label for="description">Descrição</label>
-    <textarea id="description" name="description" required></textarea>
-    <button type="submit">Enviar</button>
-</form>
-{%endif%}
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" name="description"></textarea>
+            <label for="floatingTextarea">Comentários</label>
+        </div><br>
 
-{% if tipo == 'general_support' %}
-<p>Atendimento em Geral</p>
-<form method="POST">
-    <label for="title">Título</label>
-    <input type="text" id="title" name="title" required>
-    <label for="description">Descrição</label>
-    <textarea id="description" name="description" required></textarea>
-    <button type="submit">Enviar</button>
-</form>
-{%endif%}
+        <button class="btn btn-success" type="submit">Enviar</button>
+    </form>
+    {% endif %}
 
-{% if tipo == 'equipment_purchase' %}
-<p>Atendimento em Geral</p>
-<form method="POST">
-    <label for="title">Título</label>
-    <input type="text" id="title" name="title" required>
-    <label for="description">Descrição</label>
-    <textarea id="description" name="description" required></textarea>
-    <button type="submit">Enviar</button>
-</form>
-{%endif%}
+    {% if tipo == 'uninstall_software' %}
+    <p>Escolha o Software a ser desinstalação</p>
+    <form method="POST">
+        <label for="title">Título</label>
+        <input type="text" id="title" name="title" required>
+        <label for="description">Descrição</label>
+        <textarea id="description" name="description" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    {%endif%}
 
+    {% if tipo == 'general_support' %}
+    <p>Atendimento em Geral</p>
+    <form method="POST">
+        <label for="title">Título</label>
+        <input type="text" id="title" name="title" required>
+        <label for="description">Descrição</label>
+        <textarea id="description" name="description" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    {%endif%}
 
+    {% if tipo == 'equipment_purchase' %}
+    <p>Atendimento em Geral</p>
+    <form method="POST">
+        <label for="title">Título</label>
+        <input type="text" id="title" name="title" required>
+        <label for="description">Descrição</label>
+        <textarea id="description" name="description" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    {%endif%}
+
+</main>
 {% endblock conteudo %}
