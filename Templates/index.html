@@ -5,28 +5,36 @@
     <h1>Bem-vindo ao HelpDesk</h1>
     <div class="help-options">
         <div class="help-option">
-            <img
-                src="{{ url_for('static', filename='img/install_software.png') }}"
-                alt="Instalação de Software">
-            <h2>Instalação de Software</h2>
+            <a href="{{ url_for('router.tk.servico', tipo='install_software') }}">
+                <img
+                    src="{{ url_for('static', filename='img/install_software.png') }}"
+                    alt="Instalação de Software">
+                <h2>Instalação de Software</h2>
+            </a>
         </div>
         <div class="help-option">
-            <img
-                src="{{ url_for('static', filename='img/uninstall_software.png') }}"
-                alt="Remoção ou Desinstalação de Software">
-            <h2>Desinstalação de Software</h2>
+            <a href="{{ url_for('router.tk.servico', tipo='uninstall_software') }}">
+                <img
+                    src="{{ url_for('static', filename='img/uninstall_software.png') }}"
+                    alt="Remoção ou Desinstalação de Software">
+                <h2>Desinstalação de Software</h2>
+            </a>
         </div>
         <div class="help-option">
-            <img
-                src="{{ url_for('static', filename='img/general_support.png') }}"
-                alt="Atendimento em Geral">
-            <h2>Atendimento em Geral</h2>
+            <a href="{{ url_for('router.tk.servico', tipo='general_support') }}">
+                <img
+                    src="{{ url_for('static', filename='img/general_support.png') }}"
+                    alt="Atendimento em Geral">
+                <h2>Atendimento em Geral</h2>
+            </a>
         </div>
         <div class="help-option">
-            <img
-                src="{{ url_for('static', filename='img/equipment_purchase.jpeg') }}"
-                alt="Compra de Equipamentos">
-            <h2>Compra de Equipamentos</h2>
+            <a href="{{ url_for('router.tk.servico', tipo='general_support') }}">
+                <img
+                    src="{{ url_for('static', filename='img/equipment_purchase.jpeg') }}"
+                    alt="Compra de Equipamentos">
+                <h2>Compra de Equipamentos</h2>
+            </a>
         </div>
     </div>
 </main>

@@ -20,6 +20,10 @@ nav ul li {
 
 #nav_content {
   background-color: var(--color-neutral-20);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* para garantir que a nav fique acima de outros elementos */
 }
 
 * {
@@ -50,6 +54,7 @@ main {
 h1 {
   color: var(--color-neutral-0);
   font-size: 2rem;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -65,7 +70,7 @@ h1 {
 }
 
 .help-options {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
@@ -78,7 +83,7 @@ h1 {
   text-align: center;
   background: white;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -87,7 +92,7 @@ h1 {
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 10%;
   margin-bottom: 1rem;
 }
 
@@ -97,7 +102,7 @@ h1 {
 }
 
 .help-option:hover {
-  transform: translateY(-10px);
+  transform: translateY(-30px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -274,13 +279,6 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 1em 0;
-}
-
-.reservas-online {
-  color: #25d366;
-  font-weight: bold;
-  font-size: 30px;
-  animation: colorchange 3s infinite;
 }
 
 @keyframes colorchange {

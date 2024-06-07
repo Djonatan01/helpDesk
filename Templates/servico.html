@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<h1>{{ titulo }}</h1>
+
+{% if tipo == 'install_software' %}
+<p>Escolha o Software a ser instalado</p>
+<form method="POST">
+    <label for="title">Título</label>
+    <input type="text" id="title" name="title" required>
+    <label for="description">Descrição</label>
+    <textarea id="description" name="description" required></textarea>
+    <button type="submit">Enviar</button>
+</form>
+{%endif%}
+
+
+{% if tipo == 'uninstall_software' %}
+<p>Escolha o Software a ser desinstalação</p>
+<form method="POST">
+    <label for="title">Título</label>
+    <input type="text" id="title" name="title" required>
+    <label for="description">Descrição</label>
+    <textarea id="description" name="description" required></textarea>
+    <button type="submit">Enviar</button>
+</form>
+{%endif%}
+
+{% if tipo == 'general_support' %}
+<p>Atendimento em Geral</p>
+<form method="POST">
+    <label for="title">Título</label>
+    <input type="text" id="title" name="title" required>
+    <label for="description">Descrição</label>
+    <textarea id="description" name="description" required></textarea>
+    <button type="submit">Enviar</button>
+</form>
+{%endif%}
+
+{% if tipo == 'equipment_purchase' %}
+<p>Atendimento em Geral</p>
+<form method="POST">
+    <label for="title">Título</label>
+    <input type="text" id="title" name="title" required>
+    <label for="description">Descrição</label>
+    <textarea id="description" name="description" required></textarea>
+    <button type="submit">Enviar</button>
+</form>
+{%endif%}
+
+
+{% endblock conteudo %}

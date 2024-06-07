@@ -14,3 +14,18 @@ def new_ticket():
         return redirect(url_for('router.home.index'))
 
     return render_template('new_ticket.html')
+
+
+@tk.route('/servico/<tipo>')
+def servico(tipo):
+    # Lógica para lidar com diferentes tipos de serviços
+    if tipo == 'install_software':
+        return render_template('servico.html', titulo="Instalação de Software", tipo=tipo)
+    elif tipo == 'uninstall_software':
+        return render_template('servico.html', titulo="Desinstalação de Software", tipo=tipo)
+    elif tipo == 'general_support':
+        return render_template('servico.html', titulo="Atendimento em Geral", tipo=tipo)
+    elif tipo == 'equipment_purchase':
+        return render_template('servico.html', titulo="Compra de Equipamentos", tipo=tipo)
+    else:
+        return render_template('404.html'), 404
