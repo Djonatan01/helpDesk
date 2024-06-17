@@ -7,10 +7,20 @@ tk = Blueprint('tk', __name__)
 @tk.route('/new_ticket', methods=['POST'])
 def new_ticket():
     if request.method == 'POST':
-        software_List = request.form.getlist('installsoftware')
-        software_str = ", ".join(software_List)
+        install_List = request.form.getlist('installsoftware')
+
+        uninstall_List = request.form.getlist('uninstallsoftware')
+
+        if len(install_List) > 0:
+            software_str = ", ".join(install_List)
+            valor = 'Instalação de Software'
+
+        if len(uninstall_List) > 0:
+            software_str = ", ".join(uninstall_List)
+            valor = 'Desinstalação de Software'
+
         description = request.form['description']
-        ControleTickets.cadastrarTicket('Instalação de Software',software_str,description)
+        ControleTickets.cadastrarTicket(valor,software_str,description)
         return redirect(url_for('router.home.index'))
 
     return render_template('servico.html')

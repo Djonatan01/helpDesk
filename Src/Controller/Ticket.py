@@ -8,7 +8,7 @@ class ControleTickets():
     def cadastrarTicket( _title,_software, _description):
         data = datetime.now().strftime('%d/%m/%Y')
         hora = datetime.now().strftime('%H:%M:%S')
-        tickets = Ticket(_title,_software,_description,'open',data,hora)
+        tickets = Ticket( 1,_title,_software,_description,'open','',data,hora)
 
         db.session.add(tickets)
         try:
