@@ -310,3 +310,18 @@ footer {
     color: #25d366;
   }
 }
+
+/* CSS para garantir que cada item de modelo fique em uma nova linha */
+#modelos label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#modelos input {
+  margin-right: 0.5rem;
+}
+
+#modelos img {
+  width: 50px;
+  margin-right: 0.5rem;
+}

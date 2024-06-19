@@ -124,14 +124,68 @@
     {%endif%}
 
     {% if tipo == 'equipment_purchase' %}
-    <p>Atendimento em Geral</p>
-    <form method="POST">
-        <label for="title">Título</label>
-        <input type="text" id="title" name="title" required>
-        <label for="description">Descrição</label>
-        <textarea id="description" name="description" required></textarea>
-        <button type="submit">Enviar</button>
-    </form>
+        <div class="compra-options">
+                <h3>Selecione o Equipamento desejado</h3>
+                <form id="equipamento-form">
+                    <div class="check_box" style="text-align: center;">
+                        <div class="form-check form-switch" style="text-align: left;">
+                            <input class="form-check-input" type="checkbox" id="mouse" name="equipamento" value="mouse">
+                            <label class="form-check-label" for="mouse"> Mouse </label>
+                            <img src="{{ url_for('static', filename='img/mouse.jpeg') }}" alt="Mouse" width="80">
+                        </div>
+
+
+                        <div class="form-check form-switch" style="text-align: left;">
+                            <input class="form-check-input" type="checkbox" id="teclado" name="equipamento" value="teclado">
+                            <label class="form-check-label" for="teclado">
+                                <img src="{{ url_for('static', filename='img/teclado.png') }}" alt="Teclado" width="50">
+                                Teclado
+                            </label>
+                        </div>
+                        <div class="form-check form-switch" style="text-align: left;">
+                            <input class="form-check-input" type="checkbox" id="monitor" name="equipamento" value="monitor">
+                            <label class="form-check-label" for="monitor">
+                                <img src="{{ url_for('static', filename='img/monitor.png') }}" alt="Monitor" width="50">
+                                Monitor
+                            </label>
+                        </div>
+                        <div class="form-check form-switch" style="text-align: left;">
+                            <input class="form-check-input" type="checkbox" id="notebook" name="equipamento" value="notebook">
+                            <label class="form-check-label" for="notebook">
+                                <img src="{{ url_for('static', filename='img/notebook.png') }}" alt="Notebook" width="50">
+                                Notebook
+                            </label>
+                        </div>
+                        <div class="form-check form-switch" style="text-align: left;">
+                            <input class="form-check-input" type="checkbox" id="celular" name="equipamento" value="celular">
+                            <label class="form-check-label" for="celular">
+                                <img src="{{ url_for('static', filename='img/celular.png') }}" alt="Celular" width="50">
+                                Celular
+                            </label>
+                        </div>
+                        <div class="form-check form-switch" style="text-align: left;">
+                            <input class="form-check-input" type="checkbox" id="fone" name="equipamento" value="fone_de_ouvido">
+                            <label class="form-check-label" for="fone">
+                                <img src="{{ url_for('static', filename='img/fone.png') }}" alt="Fone de Ouvido" width="50">
+                                Fone de Ouvido
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            <div id="form-container" style="display:none;">
+                <h2>Detalhes do Equipamento</h2>
+                <form id="modelo-form" method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+                    <input type="hidden" name="equipamento" id="equipamento-selecionado">
+                    <div id="modelos">
+                        <!-- Os modelos serão adicionados aqui via JavaScript -->
+                    </div>
+                    <label for="centro_custo">Centro de Custo</label>
+                    <input type="text" id="centro_custo" name="centro_custo" required>
+                    <button type="submit">Solicitar Compra</button>
+                </form>
+            </div>
+        </div>
+
     {%endif%}
 
 </main>

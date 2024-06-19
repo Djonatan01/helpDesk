@@ -19,6 +19,9 @@ def new_ticket():
             software_str = ", ".join(uninstall_List)
             valor = 'Desinstalação de Software'
 
+        if len(uninstall_List) == 0 and len(uninstall_List) == 0:
+            valor = 'Atendimento Geral'
+
         description = request.form['description']
         ControleTickets.cadastrarTicket(valor,software_str,description)
         return redirect(url_for('router.home.index'))
@@ -36,6 +39,6 @@ def servico(tipo):
     elif tipo == 'general_support':
         return render_template('servico.html', titulo="Atendimento em Geral", tipo=tipo)
     elif tipo == 'equipment_purchase':
-        return render_template('servico.html', titulo="Compra de Equipamentos", tipo=tipo)
+        return render_template('servico.html', titulo="Solicitação de Compra de Equipamento de TI", tipo=tipo)
     else:
         return render_template('404.html'), 404
