@@ -7,6 +7,7 @@
         aria-label="Search">
     <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
+{{ tickets.title }}
 <ul>
     {% for ticket in tickets %}
     <li>{{ ticket.title }} - {{ ticket.status }}</li>

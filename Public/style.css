@@ -51,6 +51,9 @@ main {
   padding: 2rem;
   flex: 1 0 auto;
 }
+.container {
+  margin-top: 60px; /* Ajuste conforme necessário */
+}
 
 h1 {
   color: var(--color-neutral-0);
@@ -70,12 +73,35 @@ h1 {
   }
 }
 
-.check_box {
+.compra-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.compra-options form-check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.compra-options form-check-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.compra-options form-check-input {
+  margin-top: 0.5rem;
+}
+
+.check_box {
   gap: 1.5rem;
   padding: 0.3rem;
   background: white;
-  border-radius: 50px;
+  border-radius: 20px;
   text-align: center;
   margin-bottom: 0.5rem;
   margin-block-end: 1rem;
@@ -309,4 +335,19 @@ footer {
   100% {
     color: #25d366;
   }
+}
+
+/* CSS para garantir que cada item de modelo fique em uma nova linha */
+#modelos label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#modelos input {
+  margin-right: 0.5rem;
+}
+
+#modelos img {
+  width: 50px;
+  margin-right: 0.5rem;
 }

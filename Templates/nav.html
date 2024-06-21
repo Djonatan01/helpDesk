@@ -1,18 +1,22 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav_content">
   <div class="container-fluid" id="nav_content">
-    <div class="container-fluid" >
+    <div class="container-fluid">
       <a href="{{ url_for('router.home.index') }}">
         <img src="{{ url_for('static', filename='img/seta-de-retorno-a-esquerda.png') }}"
           alt="Remoção ou Desinstalação de Software" width="50">
       </a>
     </div>
-    <div>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ url_for('router.home.index')}}">Home</a>
-        </li>
-        <li class="nav-item"> <a class="nav-link disabled">Disabled</a> </li>
-      </ul>
+    <div class="ms-auto">
+      {% if not current_user.userName %}
+      <div class="text-end login-button">
+        <a type="button" class="btn btn-outline-light me-2" href="{{url_for('router.login.login')}}">Login</a>
+      </div>
+      {% else %}
+      <div class="text-end me-4 user-info">
+        Usuário logado: {{current_user.userName}}
+        <a type="button" class="btn btn-outline-light me-2" href="{{url_for('router.login.logout')}}">Logout</a>
+      </div>
+      {% endif %}
     </div>
   </div>
 </nav>

@@ -58,37 +58,143 @@
     {% endif %}
 
     {% if tipo == 'uninstall_software' %}
-    <p>Escolha o Software a ser desinstalação</p>
-    <form method="POST">
-        <label for="title">Título</label>
-        <input type="text" id="title" name="title" required>
-        <label for="description">Descrição</label>
-        <textarea id="description" name="description" required></textarea>
-        <button type="submit">Enviar</button>
+    <p>Selecione o Software a ser desinstalação</p>
+    <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+        <div>
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="office" name="uninstallsoftware" value="office">
+                    <label class="form-check-label" for="office">Pacote Office</label>
+                </div>
+            </div>
+
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="tableau" name="uninstallsoftware"
+                        value="tableau">
+                    <label class="form-check-label" for="tableau">Tableau</label>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="powerbi" name="uninstallsoftware"
+                        value="powerbi">
+                    <label class="form-check-label" for="powerbi">Power BI</label><br>
+                </div>
+            </div>
+
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="photoshop" name="uninstallsoftware"
+                        value="photoshop">
+                    <label class="form-check-label" for="photoshop">Adobe Photoshop</label><br>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="vs_code" name="uninstallsoftware"
+                        value="vs_code">
+                    <label class="form-check-label" for="vs_code">Visual Studio Code</label><br>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="chrome" name="uninstallsoftware" value="chrome">
+                    <label class="form-check-label" for="chrome">Google Chrome</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" name="description"></textarea>
+            <label for="floatingTextarea">Comentários</label>
+        </div><br>
+
+        <button class="btn btn-success" type="submit">Enviar</button>
     </form>
     {%endif%}
 
     {% if tipo == 'general_support' %}
-    <p>Atendimento em Geral</p>
-    <form method="POST">
-        <label for="title">Título</label>
-        <input type="text" id="title" name="title" required>
-        <label for="description">Descrição</label>
-        <textarea id="description" name="description" required></textarea>
-        <button type="submit">Enviar</button>
+    <p>Informe o problema que esta enfrentando</p>
+    <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" name="description"></textarea>
+            <label for="floatingTextarea">Comentários</label>
+        </div><br>
+
+        <button class="btn btn-success" type="submit">Enviar</button>
     </form>
     {%endif%}
 
     {% if tipo == 'equipment_purchase' %}
-    <p>Atendimento em Geral</p>
-    <form method="POST">
-        <label for="title">Título</label>
-        <input type="text" id="title" name="title" required>
-        <label for="description">Descrição</label>
-        <textarea id="description" name="description" required></textarea>
-        <button type="submit">Enviar</button>
-    </form>
-    {%endif%}
+    <div class="compra-options">
+        <h3>Selecione o Equipamento desejado</h3>
+        <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="teclado" name="equipamento" value="teclado">
+                    <label class="form-check-label" for="teclado"> Teclado Slim Preto Usb Multilaser Tc193
+                        <img src="{{ url_for('static', filename='img/teclado.webp') }}" alt="Teclado" width="85">
+                    </label>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input style="display: flex;" class="form-check-input" type="checkbox" id="mouse" name="equipamento"
+                        value="mouse">
+                    <label class="form-check-label" for="mouse">Mouse sem fio Logitech MX Master 3S
+                    <img src="{{ url_for('static', filename='img/mouse.jpeg') }}" alt="Mouse" width="80">
+                </label>
+                </div>
+            </div>
 
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="monitor" name="equipamento" value="monitor">
+                    <label class="form-check-label" for="monitor">Monitor Gamer AOC SPEED 24 75Hz IPS 1ms 24G2HE5
+                        <img src="{{ url_for('static', filename='img/monitor.jpg') }}" alt="Monitor" width="60">
+                    </label>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="notebook" name="equipamento" value="notebook">
+                    <label class="form-check-label" for="notebook">Notebook Dell Series 3501 Intel Core i7
+                        <img src="{{ url_for('static', filename='img/notbook.webp') }}" alt="Notebook" width="90">
+
+                    </label>
+                </div>
+            </div>
+
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="celular" name="equipamento" value="celular">
+                    <label class="form-check-label" for="celular">Samsung Galaxy S23 FE 5G Smartphone Android 128GB
+                        <img src="{{ url_for('static', filename='img/celular.webp') }}" alt="Celular" width="100">
+
+                    </label>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="fone" name="equipamento" value="fone_de_ouvido">
+                    <label class="form-check-label" for="fone">Headset com fio USB Logitech H390 com Almofadas
+                        <img src="{{ url_for('static', filename='img/fone.jpg') }}" alt="Fone de Ouvido" width="60">
+
+                    </label>
+                </div>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" name="description"></textarea>
+                <label for="floatingTextarea">Informe produto que não esta na lista</label>
+            </div><br>
+            <div class="input-group mb-3">
+                <input name="centroCusto" type="text" class="form-control" placeholder="Informe o centro de custo" aria-describedby="basic-addon2" required>
+                <span class="input-group-text" id="basic-addon2">Centro de custo</span>
+            </div>
+            <button class="btn btn-success" type="submit">Enviar</button>
+        </form>
+    </div>
+    {%endif%}
 </main>
 {% endblock conteudo %}
