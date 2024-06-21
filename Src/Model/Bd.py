@@ -27,13 +27,14 @@ class Ticket(db.Model):
     idUser = db.Column(db.Integer,db.ForeignKey('Usuarios.idUser'))
     title = db.Column(db.String(50), nullable=False)
     software = db.Column(db.String(50), nullable=False)
-    description = db.Column(db.Text, nullable=False)
+    description = db.Column(db.String, nullable=False)
     status = db.Column(db.String(20), nullable=False, default='Open')
     execution = db.Column(db.String(500), nullable=False)
     created_data = db.Column(db.String, nullable=False)
     created_hora = db.Column(db.String, nullable=False)
+    cost_center = db.Column(db.String, nullable=False)
 
-    def __init__(self, _idUser, _title, _software, _description, _status,_execution, _created_data, _created_hora):
+    def __init__(self, _idUser, _title, _software, _description, _status,_execution, _created_data, _created_hora,_cost_center):
         self.idUser = _idUser
         self.title = _title
         self.software = _software
@@ -42,3 +43,4 @@ class Ticket(db.Model):
         self.execution = _execution
         self.created_data = _created_data
         self.created_hora = _created_hora
+        self.cost_center = _cost_center

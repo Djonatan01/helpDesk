@@ -70,12 +70,35 @@ h1 {
   }
 }
 
-.check_box {
+.compra-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.compra-options form-check {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.compra-options form-check-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.compra-options form-check-input {
+  margin-top: 0.5rem;
+}
+
+.check_box {
   gap: 1.5rem;
   padding: 0.3rem;
   background: white;
-  border-radius: 50px;
+  border-radius: 20px;
   text-align: center;
   margin-bottom: 0.5rem;
   margin-block-end: 1rem;

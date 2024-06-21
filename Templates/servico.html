@@ -70,13 +70,15 @@
 
             <div class="check_box">
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="tableau" name="uninstallsoftware" value="tableau">
+                    <input class="form-check-input" type="checkbox" id="tableau" name="uninstallsoftware"
+                        value="tableau">
                     <label class="form-check-label" for="tableau">Tableau</label>
                 </div>
             </div>
             <div class="check_box">
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="powerbi" name="uninstallsoftware" value="powerbi">
+                    <input class="form-check-input" type="checkbox" id="powerbi" name="uninstallsoftware"
+                        value="powerbi">
                     <label class="form-check-label" for="powerbi">Power BI</label><br>
                 </div>
             </div>
@@ -90,7 +92,8 @@
             </div>
             <div class="check_box">
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="vs_code" name="uninstallsoftware" value="vs_code">
+                    <input class="form-check-input" type="checkbox" id="vs_code" name="uninstallsoftware"
+                        value="vs_code">
                     <label class="form-check-label" for="vs_code">Visual Studio Code</label><br>
                 </div>
             </div>
@@ -113,7 +116,7 @@
 
     {% if tipo == 'general_support' %}
     <p>Informe o problema que esta enfrentando</p>
-    <form method="POST">
+    <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" name="description"></textarea>
             <label for="floatingTextarea">Comentários</label>
@@ -124,69 +127,74 @@
     {%endif%}
 
     {% if tipo == 'equipment_purchase' %}
-        <div class="compra-options">
-                <h3>Selecione o Equipamento desejado</h3>
-                <form id="equipamento-form">
-                    <div class="check_box" style="text-align: center;">
-                        <div class="form-check form-switch" style="text-align: left;">
-                            <input class="form-check-input" type="checkbox" id="mouse" name="equipamento" value="mouse">
-                            <label class="form-check-label" for="mouse"> Mouse </label>
-                            <img src="{{ url_for('static', filename='img/mouse.jpeg') }}" alt="Mouse" width="80">
-                        </div>
-
-
-                        <div class="form-check form-switch" style="text-align: left;">
-                            <input class="form-check-input" type="checkbox" id="teclado" name="equipamento" value="teclado">
-                            <label class="form-check-label" for="teclado">
-                                <img src="{{ url_for('static', filename='img/teclado.png') }}" alt="Teclado" width="50">
-                                Teclado
-                            </label>
-                        </div>
-                        <div class="form-check form-switch" style="text-align: left;">
-                            <input class="form-check-input" type="checkbox" id="monitor" name="equipamento" value="monitor">
-                            <label class="form-check-label" for="monitor">
-                                <img src="{{ url_for('static', filename='img/monitor.png') }}" alt="Monitor" width="50">
-                                Monitor
-                            </label>
-                        </div>
-                        <div class="form-check form-switch" style="text-align: left;">
-                            <input class="form-check-input" type="checkbox" id="notebook" name="equipamento" value="notebook">
-                            <label class="form-check-label" for="notebook">
-                                <img src="{{ url_for('static', filename='img/notebook.png') }}" alt="Notebook" width="50">
-                                Notebook
-                            </label>
-                        </div>
-                        <div class="form-check form-switch" style="text-align: left;">
-                            <input class="form-check-input" type="checkbox" id="celular" name="equipamento" value="celular">
-                            <label class="form-check-label" for="celular">
-                                <img src="{{ url_for('static', filename='img/celular.png') }}" alt="Celular" width="50">
-                                Celular
-                            </label>
-                        </div>
-                        <div class="form-check form-switch" style="text-align: left;">
-                            <input class="form-check-input" type="checkbox" id="fone" name="equipamento" value="fone_de_ouvido">
-                            <label class="form-check-label" for="fone">
-                                <img src="{{ url_for('static', filename='img/fone.png') }}" alt="Fone de Ouvido" width="50">
-                                Fone de Ouvido
-                            </label>
-                        </div>
-                    </div>
-                </form>
-            <div id="form-container" style="display:none;">
-                <h2>Detalhes do Equipamento</h2>
-                <form id="modelo-form" method="POST" action="{{ url_for('router.tk.new_ticket') }}">
-                    <input type="hidden" name="equipamento" id="equipamento-selecionado">
-                    <div id="modelos">
-                        <!-- Os modelos serão adicionados aqui via JavaScript -->
-                    </div>
-                    <label for="centro_custo">Centro de Custo</label>
-                    <input type="text" id="centro_custo" name="centro_custo" required>
-                    <button type="submit">Solicitar Compra</button>
-                </form>
+    <div class="compra-options">
+        <h3>Selecione o Equipamento desejado</h3>
+        <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="teclado" name="equipamento" value="teclado">
+                    <label class="form-check-label" for="teclado"> Teclado Slim Preto Usb Multilaser Tc193
+                        <img src="{{ url_for('static', filename='img/teclado.webp') }}" alt="Teclado" width="85">
+                    </label>
+                </div>
             </div>
-        </div>
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input style="display: flex;" class="form-check-input" type="checkbox" id="mouse" name="equipamento"
+                        value="mouse">
+                    <label class="form-check-label" for="mouse">Mouse sem fio Logitech MX Master 3S
+                    <img src="{{ url_for('static', filename='img/mouse.jpeg') }}" alt="Mouse" width="80">
+                </label>
+                </div>
+            </div>
 
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="monitor" name="equipamento" value="monitor">
+                    <label class="form-check-label" for="monitor">Monitor Gamer AOC SPEED 24 75Hz IPS 1ms 24G2HE5
+                        <img src="{{ url_for('static', filename='img/monitor.jpg') }}" alt="Monitor" width="60">
+                    </label>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="notebook" name="equipamento" value="notebook">
+                    <label class="form-check-label" for="notebook">Notebook Dell Series 3501 Intel Core i7
+                        <img src="{{ url_for('static', filename='img/notbook.webp') }}" alt="Notebook" width="90">
+
+                    </label>
+                </div>
+            </div>
+
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="celular" name="equipamento" value="celular">
+                    <label class="form-check-label" for="celular">Samsung Galaxy S23 FE 5G Smartphone Android 128GB
+                        <img src="{{ url_for('static', filename='img/celular.webp') }}" alt="Celular" width="100">
+
+                    </label>
+                </div>
+            </div>
+            <div class="check_box">
+                <div class="form-check form-switch" style="text-align: left;">
+                    <input class="form-check-input" type="checkbox" id="fone" name="equipamento" value="fone_de_ouvido">
+                    <label class="form-check-label" for="fone">Headset com fio USB Logitech H390 com Almofadas
+                        <img src="{{ url_for('static', filename='img/fone.jpg') }}" alt="Fone de Ouvido" width="60">
+
+                    </label>
+                </div>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" name="description"></textarea>
+                <label for="floatingTextarea">Informe produto que não esta na lista</label>
+            </div><br>
+            <div class="input-group mb-3">
+                <input name="centroCusto" type="text" class="form-control" placeholder="Informe o centro de custo" aria-describedby="basic-addon2" required>
+                <span class="input-group-text" id="basic-addon2">Centro de custo</span>
+            </div>
+            <button class="btn btn-success" type="submit">Enviar</button>
+        </form>
+    </div>
     {%endif%}
-
 </main>
 {% endblock conteudo %}
