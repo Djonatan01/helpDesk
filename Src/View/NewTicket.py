@@ -1,10 +1,12 @@
 from flask import Blueprint, render_template, request,redirect,url_for
-#from flask_login import login_required
+from flask_login import login_required
 from ..Controller.Ticket import ControleTickets
+from Src.Model.Bd import Ticket
 
 tk = Blueprint('tk', __name__)
 
 @tk.route('/new_ticket', methods=['POST'])
+@login_required
 def new_ticket():
     if request.method == 'POST':
         centroCusto = ''
@@ -39,8 +41,13 @@ def new_ticket():
 
     return render_template('servico.html')
 
+@tk.route('/servicos')
+def servicos():
+    tickets = Ticket.query.all()
+    return render_template('servicos.html', tickets=tickets)
 
 @tk.route('/servico/<tipo>')
+@login_required
 def servico(tipo):
     # Lógica para lidar com diferentes tipos de serviços
     if tipo == 'install_software':

@@ -1,11 +1,11 @@
 import re
 
-def emailRegex(_email):
+def emailRegex(userEmail):
   emailRegex = re.compile(
     #r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'
     r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
   )
-  return True if re.fullmatch(emailRegex, _email) else False
+  return True if re.fullmatch(emailRegex, userEmail) else False
 
 def contatoRegex(contato):
   contatoRegex = re.compile(

@@ -51,6 +51,9 @@ main {
   padding: 2rem;
   flex: 1 0 auto;
 }
+.container {
+  margin-top: 60px; /* Ajuste conforme necessário */
+}
 
 h1 {
   color: var(--color-neutral-0);

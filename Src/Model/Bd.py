@@ -1,22 +1,25 @@
-from datetime import datetime
 from config import db
+from flask_login import UserMixin
 
 # ***************************************User Sistem************************************************
 
+class CreatUser(UserMixin,db.Model):
+    __tablename__ = "CreatUser"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    userName = db.Column(db.String(150), nullable=False)
+    fone = db.Column(db.String(50), nullable=False)
+    cadDate = db.Column(db.String(50), nullable=False)
+    hour = db.Column(db.String(10), nullable=False)
+    emailUser = db.Column(db.String(150), nullable=False)
+    passwordUser = db.Column(db.String, nullable=False)
 
-class CreatUser(db.Model):
-    __tablename__ = "Usuarios"
-    idUser = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    userName = db.Column(db.Text, nullable=False)
-    fone = db.Column(db.Text, nullable=False)
-    emailUser = db.Column(db.Text, nullable=False)
-    passwordUser = db.Column(db.Text, nullable=False)
-
-    def __init__(self, _userName,_fone, _emailUser, _passwordUser):
-        self.userName
-        self.fone
-        self.emailUser
-        self.passwordUser
+    def __init__(self, _userName,_fone,_cadDate,_hour,_emailUser, _passwordUser):
+        self.userName=_userName
+        self.fone=_fone
+        self.cadDate=_cadDate
+        self.hour=_hour
+        self.emailUser=_emailUser
+        self.passwordUser=_passwordUser
 
 # ***************************************Tickets Sistem*********************************************
 
@@ -24,7 +27,7 @@ class CreatUser(db.Model):
 class Ticket(db.Model):
     __tablename__ = "Ticket"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    idUser = db.Column(db.Integer,db.ForeignKey('Usuarios.idUser'))
+    idUser = db.Column(db.Integer,db.ForeignKey('CreatUser.id'))
     title = db.Column(db.String(50), nullable=False)
     software = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String, nullable=False)

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h2>Cadastrar usuário</h2><br>
+
+<div class="container">
+  {% for category, message in get_flashed_messages(with_categories=true) %}
+  {% if category == 'error' %}
+  <div class="alert alert-danger">{{message}}</div>
+  {% else %}
+  <div class="alert alert-success"> {{message}} </div>
+  {% endif %}
+  {% endfor %}
+</div>
+<form method="POST" action="{{url_for('router.user.createUser')}}">
+  <div class="row">
+    <div class="col-sm-6">
+      <label class="form-label" for="">Nome do usuário</label>
+      <input type="text" class="form-control" name="userName" required>
+    </div>
+    <div class="col-sm-6">
+      <label class="form-label" for="">Telefone / Celular </label>
+      <input type="text" class="form-control" name="userFone" id="userFone" >
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm-6">
+      <label class="form-label" for="">E-mail</label>
+      <input type="email" class="form-control" name="userEmail"required>
+    </div>
+    <div class="col-sm-6">
+      <label class="form-label" for="">Senha</label>
+      <input type="password" class="form-control" name="userpassword"required>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="submit" name="bt1" value="1" class="btn btn-primary">Enviar</button>
+    </div>
+  </div>
+</form>
+<br>
+{% endblock conteudo %}

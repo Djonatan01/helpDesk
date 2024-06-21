@@ -10,7 +10,7 @@
 <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-9 col-lg-6 col-xl-5">
-            <img src="{{url_for('static', filename='Images/imagem_login.png')}}" class="img-fluid mx-auto d-block"
+            <img src="{{url_for('static', filename='img/logo2.jpeg')}}" class="img-fluid mx-auto d-block"
                 alt="Imagem responsiva">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
@@ -18,20 +18,19 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">E-mail</label>
-                    <input type="email" id="form3Example3" name="emailLogin" class="form-control form-control-lg" />
+                    <input type="email" id="form3Example3" name="emailLogin" class="form-control form-control-lg" required />
                 </div>
                 <!-- Password input -->
                 <div class="form-outline mb-3">
                     <label class="form-label" for="form3Example4">Senha</label>
-                    <input type="password" id="form3Example4" name="passwdLogin" class="form-control form-control-lg" />
+                    <input type="password" id="form3Example4" name="passwdLogin" class="form-control form-control-lg" required />
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <button type="submit" name="bt1" value="1" class="btn btn-primary">Login</button>
-                    <a href="{{url_for('router.user.listCodUser')}}" class="btn btn-primary btn-xs">Cadastre-se</a>
+                    <a href="{{url_for('router.user.createUser')}}" class="btn btn-primary btn-xs">Cadastre-se</a>
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 {% endblock conteudo %}
