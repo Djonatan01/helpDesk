@@ -2,16 +2,59 @@
 {% block conteudo %}
 <h1>Bem-vindo ao Sistema de HelpDesk</h1>
 
-<form class="d-flex" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search"
-        aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
-{{ tickets.title }}
 <ul>
     {% for ticket in tickets %}
     <li>{{ ticket.title }} - {{ ticket.status }}</li>
     {% endfor %}
 </ul>
+
+<div class="row">
+    <label class="form-label" for="form3Example4">Número do chamado</label>
+    <form action="{{url_for('router.tk.servicos')}}" method="GET">
+        <div class="form-group row">
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control" name="numeroChamado" value="10">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="bg-white ">
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Número do chamado</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Informações</th>
+                <th scope="col">Data da Solicitação</th>
+                <th scope="col">Hora da Solicitação</th>
+                <th scope="col">Centro de Custo</th>
+                <th scope="col">AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ticket.identificador}}</td>
+                <td>{{ticket.title}}</td>
+                <td>{{ticket.endereco}}</td>
+                <td>{{ticket.contato}}</td>
+                <td>{{ticket.email}}</td>
+                <td>{{ticket.email}}</td>
+                <td>{{ticket.email}}</td>
+                <td>
+                    <a href="{{ticket.id}}/updateUser" class="btn btn-primary btn-sm"
+                        aria-label="Editar usuário {{ticket.nome}}">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock conteudo %}
