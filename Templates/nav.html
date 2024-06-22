@@ -5,7 +5,11 @@
         <img src="{{ url_for('static', filename='img/seta-de-retorno-a-esquerda.png') }}"
           alt="Remoção ou Desinstalação de Software" width="50">
       </a>
+      {% if current_user.status == "ADMIN" %}
+      <a type="button" class="btn btn-outline-light me-2" href="{{url_for('router.tk.servicos')}}">Serviços</a>
+      {% endif %}
     </div>
+
     <div class="ms-auto">
       {% if not current_user.userName %}
       <div class="text-end login-button">
