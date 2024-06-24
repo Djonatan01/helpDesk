@@ -7,11 +7,14 @@
 </div>
 {% endfor %}
 
+<h1>Bem-vindo ao Sistema de HelpDesk</h1>
+<h5>Realize login</h5>
+
 <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-9 col-lg-6 col-xl-5">
             <img src="{{url_for('static', filename='img/logo2.jpeg')}}" class="img-fluid mx-auto d-block"
-                alt="Imagem responsiva">
+                alt="Imagem responsiva" width="300">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form method="POST" action="{{url_for('router.login.makeLogin')}}">

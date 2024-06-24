@@ -5,7 +5,7 @@
 
     {% if tipo == 'install_software' %}
     <p>Escolha os Software a ser instalado</p>
-    <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+    <form method="POST" action="{{ url_for('router.tk.new_ticket', id=current_user.id )}}">
         <div>
             <div class="check_box">
                 <div class="form-check form-switch">
@@ -59,7 +59,7 @@
 
     {% if tipo == 'uninstall_software' %}
     <p>Selecione o Software a ser desinstalação</p>
-    <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+    <form method="POST" action="{{ url_for('router.tk.new_ticket', id=current_user.id )}}">
         <div>
             <div class="check_box">
                 <div class="form-check form-switch">
@@ -116,7 +116,7 @@
 
     {% if tipo == 'general_support' %}
     <p>Informe o problema que esta enfrentando</p>
-    <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+    <form method="POST" action="{{ url_for('router.tk.new_ticket', id=current_user.id )}}">
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" name="description"></textarea>
             <label for="floatingTextarea">Comentários</label>
@@ -129,7 +129,7 @@
     {% if tipo == 'equipment_purchase' %}
     <div class="compra-options">
         <h3>Selecione o Equipamento desejado</h3>
-        <form method="POST" action="{{ url_for('router.tk.new_ticket') }}">
+        <form method="POST" action="{{ url_for('router.tk.new_ticket', id=current_user.id )}}">
             <div class="check_box">
                 <div class="form-check form-switch" style="text-align: left;">
                     <input class="form-check-input" type="checkbox" id="teclado" name="equipamento" value="teclado">
@@ -161,7 +161,6 @@
                     <input class="form-check-input" type="checkbox" id="notebook" name="equipamento" value="notebook">
                     <label class="form-check-label" for="notebook">Notebook Dell Series 3501 Intel Core i7
                         <img src="{{ url_for('static', filename='img/notbook.webp') }}" alt="Notebook" width="90">
-
                     </label>
                 </div>
             </div>

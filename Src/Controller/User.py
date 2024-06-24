@@ -6,11 +6,11 @@ from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash
 
 class CreatUsers:
-    def creatUsersname(_userName,_fone, _emailUser, _passwordUser):
+    def creatUsersname(_userName,_fone, _emailUser, _passwordUser,_status):
         data = datetime.now().strftime('%d/%m/%Y')
         hora = datetime.now().strftime('%H:%M:%S')
         passwordUser = generate_password_hash(_passwordUser)
-        craetUsers = CreatUser(_userName,_fone,data,hora,_emailUser,passwordUser)
+        craetUsers = CreatUser(_userName,_fone,data,hora,_emailUser,passwordUser,_status)
 
         db.session.add(craetUsers)
         try:

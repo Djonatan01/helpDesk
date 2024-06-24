@@ -33,6 +33,12 @@
       <label class="form-label" for="">Senha</label>
       <input type="password" class="form-control" name="userpassword"required>
     </div>
+    {% if current_user.status == "ADMIN" %}
+    <div class="col-sm-6">
+      <label class="form-label" for="">Tipo de usuário</label>
+      <input type="text" class="form-control" name="userType"required>
+    </div>
+    {% endif %}
   </div>
   <hr>
   <div class="row">

@@ -11,6 +11,7 @@ def createUser():
     fone = request.form.get('userFone')
     emailUser = request.form.get('userEmail')
     passwordUser = request.form.get('userpassword')
+    status = str(request.form.get('userType')).upper()
 
     if request.method == 'POST':
         if CreatUsers.checkEmail(_email = emailUser):
@@ -18,8 +19,11 @@ def createUser():
         else:
             if Regex.contatoRegex(fone):
                 if Regex.emailRegex(emailUser):
-                    if CreatUsers.creatUsersname(userName, fone, emailUser, passwordUser):
-                        return redirect(url_for('router.login.login'))
+                    if CreatUsers.creatUsersname(userName, fone, emailUser, passwordUser,status):
+                        if status is None:
+                            return redirect(url_for('router.login.login'))
+                        else:
+                            return redirect(url_for('router.home.index'))
                 else:
                     flash('E-mail inválido', 'error')
             else:
