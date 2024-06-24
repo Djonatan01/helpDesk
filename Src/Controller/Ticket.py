@@ -19,3 +19,20 @@ class ControleTickets():
             logging.error(f"Ocorreu um erro: {e}")
             db.session.rollback()
         return False
+
+    def atualizarTicket(_id,_status,_atendimento):
+        # Consulta o ticket baseado no _id
+        ticket = db.session.query(Ticket).filter_by(id=_id).first()
+        if ticket:
+            # Atualiza os campos desejados
+            ticket.status = _status
+            ticket.execution = _atendimento
+
+            # Tenta comitar as mudanças
+            try:
+                db.session.commit()
+                return True
+            except IntegrityError as e:
+                logging.error(f"Ocorreu um erro: {e}")
+                db.session.rollback()
+                return False

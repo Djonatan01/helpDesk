@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    {% for ticket in tickets %}
+    <h1>Atendimento do chamado: {{ ticket.identificador }}</h1>
+    <form method="POST" action="{{ url_for('router.tk.update', id=ticket.id )}}">
+<div class="row justify-content-center"><!--principal-->
+    <div class="form-group col-md-3" style="text-align: left;"><!--Div 1 -->
+        <label class="form-label" >Número do chamado</label>
+        <input type="text" class="form-control" name="identificador" value="{{ticket.identificador}}" disabled><br>
+        <label class="form-label" >Titulo do chamado</label>
+        <input type="text" class="form-control" name="title" value="{{ticket.title}}" disabled><br>
+
+        {% if ticket.cost_center%}
+            <label class="form-label" >Equipamentos</label>
+        {% else %}
+            <label class="form-label" >Instalar / Desinstalar</label>
+        {% endif %}
+        <input type="text" class="form-control" name="software" value="{{ticket.software}}" disabled><br>
+        <label class="form-label" >Descrição chamado</label>
+        <input type="text" class="form-control" name="description" value="{{ticket.description}}" disabled><br>
+    </div>
+
+    <div class="form-group col-md-3" style="text-align: left;"><!--Div 2 -->
+        <label class="form-label" >Data abertura chamado</label>
+        <input type="text" class="form-control" name="created_data" value="{{ticket.created_data}}" disabled><br>
+        <label class="form-label" >Hora abertura do chamado</label>
+        <input type="text" class="form-control" name="created_hora" value="{{ticket.created_hora}}" disabled><br>
+        <label class="form-label" >Centro de custo do chamado</label>
+        <input type="text" class="form-control" name="cost_center" value="{{ticket.cost_center}}" disabled><br>
+        <label class="form-label" >Status do chamado</label>
+
+        <select class="form-control" name="status" required>
+            <option value=""></option>
+            <option value="Andamento" {% if ticket.status == 'Andamento' %}selected{% endif %}>Andamento</option>
+            <option value="Fechado" {% if ticket.status == 'Fechado' %}selected{% endif %}>Fechado</option>
+        </select><br>
+    </div>
+</div>
+<div class="row justify-content-center">
+    {% if ticket.status == "open" %}
+        <textarea class="form-control" placeholder="Atendimento: " name="Atendimento"></textarea>
+    {% else %}
+        <textarea class="form-control" name="Atendimento">{{ ticket.execution.split(' | ')[0] }}</textarea>
+    {% endif %}
+</div><br>
+    <button class="btn btn-success" type="submit" name="button" value="{{current_user.id}}" >Enviar</button>
+</form>
+
+    {% endfor %}
+
+{% endblock conteudo %}

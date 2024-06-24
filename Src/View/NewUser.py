@@ -20,7 +20,10 @@ def createUser():
             if Regex.contatoRegex(fone):
                 if Regex.emailRegex(emailUser):
                     if CreatUsers.creatUsersname(userName, fone, emailUser, passwordUser,status):
-                        return redirect(url_for('router.login.login'))
+                        if status is None:
+                            return redirect(url_for('router.login.login'))
+                        else:
+                            return redirect(url_for('router.home.index'))
                 else:
                     flash('E-mail inválido', 'error')
             else:

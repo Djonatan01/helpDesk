@@ -34,6 +34,7 @@
         </thead>
         <tbody>
             {% for ticket in tickets %}
+            {% if ticket.status != "Fechado" %}
             <tr>
                 <td>{{ticket.identificador}}</td>
                 <td>{{ticket.title}}</td>
@@ -43,11 +44,10 @@
                 <td>{{ticket.created_hora}}</td>
                 <td>{{ticket.cost_center}}</td>
                 <td>{{ticket.status}}</td>
-                <td>
-                    <a href="{{ticket.id}}/updateUser" class="btn btn-primary btn-sm"
-                        aria-label="Editar usuário {{ticket.nome}}">Editar</a>
+                <td> <a href="{{ticket.id}}/atendimento" class="btn btn-primary btn-sm" >Editar</a>
                 </td>
             </tr>
+            {% endif %}
             {% endfor %}
         </tbody>
     </table>
