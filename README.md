@@ -31,5 +31,5 @@ pip install -r requirements.txt  # Instala as dependências listadas no arquivo 
 #### Então, inicialize o servidor da API:
 
 ```bash
-python main.py
+python app.py
 ```
