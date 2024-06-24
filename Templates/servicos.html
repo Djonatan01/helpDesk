@@ -2,38 +2,33 @@
 {% block conteudo %}
 <h1>Bem-vindo ao Sistema de HelpDesk</h1>
 
-<ul>
-    {% for ticket in tickets %}
-    <li>{{ ticket.title }} - {{ ticket.status }}</li>
-    {% endfor %}
-</ul>
-
-<div class="row">
+<div class="row" style="text-align: left;">
     <label class="form-label" for="form3Example4">Número do chamado</label>
-    <form action="{{url_for('router.tk.servicos')}}" method="GET">
+    <form method="POST" action="{{url_for('router.tk.servicos')}}" >
         <div class="form-group row">
             <div class="form-group col-md-3">
-                <input type="text" class="form-control" name="numeroChamado" value="10">
+                <input type="text" class="form-control" name="numeroChamado">
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary">Filtrar</button>
             </div>
         </div>
     </form>
+    <br> <br>
 </div>
-
 
 <div class="bg-white ">
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
-                <th scope="col">Número do chamado</th>
+                <th scope="col">Chamado</th>
                 <th scope="col">Titulo</th>
+                <th scope="col">Software</th>
                 <th scope="col">Descrição</th>
-                <th scope="col">Informações</th>
                 <th scope="col">Data da Solicitação</th>
                 <th scope="col">Hora da Solicitação</th>
                 <th scope="col">Centro de Custo</th>
+                <th scope="col">Status</th>
                 <th scope="col">AÇÕES</th>
             </tr>
         </thead>
@@ -42,11 +37,12 @@
             <tr>
                 <td>{{ticket.identificador}}</td>
                 <td>{{ticket.title}}</td>
-                <td>{{ticket.endereco}}</td>
-                <td>{{ticket.contato}}</td>
-                <td>{{ticket.email}}</td>
-                <td>{{ticket.email}}</td>
-                <td>{{ticket.email}}</td>
+                <td>{{ticket.software}}</td>
+                <td>{{ticket.description}}</td>
+                <td>{{ticket.created_data}}</td>
+                <td>{{ticket.created_hora}}</td>
+                <td>{{ticket.cost_center}}</td>
+                <td>{{ticket.status}}</td>
                 <td>
                     <a href="{{ticket.id}}/updateUser" class="btn btn-primary btn-sm"
                         aria-label="Editar usuário {{ticket.nome}}">Editar</a>

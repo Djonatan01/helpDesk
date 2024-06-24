@@ -54,8 +54,26 @@ def new_ticket(id):
 
     return render_template('servico.html')
 
-@tk.route('/servicos')
+@tk.route('/servicos', methods=['GET','POST'])
+@login_required
 def servicos():
+    tiket = request.form['numeroChamado']
+    print(tiket)
+
+    if tiket:
+        # Filtrar tickets por número de chamado específico
+        tickets = Ticket.query.filter_by(identificador=tiket).all()
+    else:
+        # Se nenhum número de chamado for fornecido, retornar todos os tickets
+        tickets = Ticket.query.all()
+
+    return render_template('servicos.html', tickets=tickets)
+
+
+
+
+@tk.route('/tiket')
+def tiket():
     tickets = Ticket.query.all()
     return render_template('servicos.html', tickets=tickets)
 
