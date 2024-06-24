@@ -28,10 +28,8 @@ def makeLogin():
       print(employee.id)
       load_user(employee.id)
       login_user(employee)
-      if current_user.userName == "admin":
-        return redirect(url_for('router.tk.servicos'))
-      else:
-        return redirect(url_for('router.home.index'))
+
+      return redirect(url_for('router.home.index'))
 
 @Login.route('/logout')
 @login_required

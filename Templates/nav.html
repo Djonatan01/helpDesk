@@ -7,7 +7,7 @@
       </a>
       {% if current_user.status == "ADMIN" %}
       <a type="button" class="btn btn-outline-light me-2" href="{{url_for('router.tk.tiket')}}">Serviços</a>
-      <a type="button" class="btn btn-outline-light me-2" href="{{url_for('router.user.createUser')}}" >Cadastrar</a>
+      <a type="button" class="btn btn-outline-light me-2" href="{{url_for('router.user.createUser')}}" >Cadastrar usuários</a>
       <a type="button" class="btn btn-outline-light me-2" href="{{url_for('router.tk.listar')}}" >Export chamados</a>
 
       {% endif %}
