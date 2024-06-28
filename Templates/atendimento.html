@@ -43,7 +43,7 @@
         <textarea class="form-control" name="Atendimento">{{ ticket.execution.split(' | ')[0] }}</textarea>
     {% endif %}
 </div><br>
-    <button class="btn btn-success" type="submit" name="button" value="{{current_user.id}}" >Enviar</button>
+    <button class="btn btn-success" type="submit" name="button" value="{{current_user.userName}}" >Enviar</button>
 </form>
 
     {% endfor %}
